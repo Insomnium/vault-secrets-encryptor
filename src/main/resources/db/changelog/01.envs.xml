@@ -1,0 +1,45 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="envs_initial_schema" author="ins137@gmail.com">
+        <createTable tableName="environment">
+            <column name="id" type="character varying">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="character varying">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="character varying" />
+        </createTable>
+
+        <createTable tableName="variable">
+            <column name="key" type="character varying">
+                <constraints nullable="false" />
+            </column>
+            <column name="env" type="character varying">
+                <constraints nullable="false" />
+            </column>
+            <column name="value" type="character varying">
+                <constraints nullable="false" />
+            </column>
+            <column name="note" type="clob" />
+        </createTable>
+        <addPrimaryKey tableName="variable" columnNames="key,env" />
+        <addForeignKeyConstraint baseTableName="variable" baseColumnNames="env"
+                                 constraintName="variable_to_environment_fk"
+                                 referencedTableName="environment"
+                                 referencedColumnNames="id" />
+    </changeSet>
+
+    <changeSet id="envs_prefill" author="ins137@gmail.com">
+        <loadData tableName="environment" file="../data/envs.csv" relativeToChangelogFile="true" />
+        <loadData tableName="variable" file="../data/variables.csv" relativeToChangelogFile="true" />
+    </changeSet>
+
+</databaseChangeLog>

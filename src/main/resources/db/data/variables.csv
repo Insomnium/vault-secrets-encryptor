@@ -1,0 +1,4 @@
+key,env,value,note
+DB_URL,DSO,jdbc:postgresql://localhost:5432/postgres,
+POSTGRES_USER,DSO,postgres,
+POSTGRES_PASSWORD,DSO,postgres,
