@@ -15,4 +15,6 @@ class EnvironmentServiceImpl(
 
     override fun getById(env: String): Environment = envStore.getById(env)
         ?: throw EntityNotFoundException("Environment $env not found")
+
+    override fun create(env: Environment): Environment = envStore.create(env)
 }

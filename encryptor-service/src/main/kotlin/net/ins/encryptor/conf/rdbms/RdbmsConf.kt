@@ -1,4 +1,4 @@
-package net.ins.encryptor.conf
+package net.ins.encryptor.conf.rdbms
 
 import net.ins.encryptor.conf.meta.RdbmsProfile
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
