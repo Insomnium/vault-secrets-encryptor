@@ -1,4 +1,4 @@
-package net.ins.encryptor.conf
+package net.ins.encryptor.conf.mongo
 
 import com.github.cloudyrock.spring.v5.EnableMongock
 import net.ins.encryptor.conf.meta.MongoProfile
