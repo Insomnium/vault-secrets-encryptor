@@ -1,7 +1,6 @@
 package net.ins.encryptor.api
 
 import net.ins.encryptor.domain.dto.Environment
-import net.ins.encryptor.extensions.toDTO
 import net.ins.encryptor.service.EnvironmentService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -15,8 +14,8 @@ class EnvironmentController(
 ) {
 
     @GetMapping
-    fun list(): Set<Environment> = environmentService.list().map { it.toDTO() }.toSet()
+    fun list(): Set<Environment> = environmentService.list()
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable("id") id: String): Environment = environmentService.getById(id).toDTO()
+    fun getById(@PathVariable("id") id: String): Environment = environmentService.getById(id)
 }

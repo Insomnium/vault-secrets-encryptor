@@ -1,7 +1,7 @@
 package net.ins.encryptor.extensions
 
-import net.ins.encryptor.domain.EnvironmentEntity
-import net.ins.encryptor.domain.VariableEntity
+import net.ins.encryptor.persistence.internals.jpa.EnvironmentEntity
+import net.ins.encryptor.persistence.internals.jpa.VariableEntity
 import net.ins.encryptor.domain.dto.Environment
 import net.ins.encryptor.domain.dto.Variable
 

@@ -1,4 +1,4 @@
-package net.ins.encryptor.domain
+package net.ins.encryptor.persistence.internals.jpa
 
 import java.io.Serializable
 import javax.persistence.*
