@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/environments
+
+mongock:
+  change-logs-scan-package: net.ins.encryptor.persistence.internals.mongo.migration
+  lock-acquired-for-minutes: 5
+  max-waiting-for-lock-minutes: 1
