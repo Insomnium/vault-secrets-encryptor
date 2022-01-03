@@ -7,4 +7,6 @@ interface EnvironmentService {
     fun list(): Set<Environment>
 
     fun getById(env: String): Environment
+
+    fun create(env: Environment): Environment
 }

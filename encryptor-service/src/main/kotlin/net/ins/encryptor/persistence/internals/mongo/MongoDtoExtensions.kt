@@ -16,3 +16,16 @@ fun VariableEntity.toDTO(env: String): Variable = Variable(
     value = this.value,
     note = this.note
 )
+
+fun Environment.toEntity(): EnvironmentEntity = EnvironmentEntity(
+    id = this.id,
+    name = this.name,
+    description = this.description,
+    variables = this.variables.map { it.toEntity() }.toSet()
+)
+
+fun Variable.toEntity(): VariableEntity = VariableEntity(
+    key = this.key,
+    value = this.value,
+    note = this.note
+)

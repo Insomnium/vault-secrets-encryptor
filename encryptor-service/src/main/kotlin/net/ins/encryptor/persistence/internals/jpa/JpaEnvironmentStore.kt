@@ -16,4 +16,8 @@ class JpaEnvironmentStore(
     override fun list(): List<Environment> = jpaEnvironmentRepo.findAll().map { it.toDTO() }
 
     override fun getById(id: String): Environment? = jpaEnvironmentRepo.findByIdOrNull(id)?.toDTO()
+
+    override fun create(environment: Environment): Environment {
+        TODO("Not yet implemented")
+    }
 }
