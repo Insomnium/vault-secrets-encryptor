@@ -37,7 +37,7 @@
                                  referencedColumnNames="id" />
     </changeSet>
 
-    <changeSet id="envs_prefill" author="ins137@gmail.com">
+    <changeSet id="envs_prefill" author="ins137@gmail.com" context="!test">
         <loadData tableName="environment" file="../data/envs.csv" relativeToChangelogFile="true" />
         <loadData tableName="variable" file="../data/variables.csv" relativeToChangelogFile="true" />
     </changeSet>

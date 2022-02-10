@@ -31,7 +31,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.liquibase:liquibase-core")
     runtimeOnly("org.postgresql:postgresql")
-    testImplementation("com.h2database:h2:1.4.200")
 
     // mongo
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
@@ -47,6 +46,13 @@ dependencies {
     implementation("javax.validation:validation-api:2.0.1.Final")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
     implementation(project(":encryptor-api"))
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation(platform("org.testcontainers:testcontainers-bom:1.16.3"))
+    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.testcontainers:mongodb")
+    testImplementation("org.testcontainers:junit-jupiter")
 }
