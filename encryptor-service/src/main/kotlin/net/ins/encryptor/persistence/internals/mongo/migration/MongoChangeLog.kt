@@ -6,9 +6,11 @@ import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl
 import net.ins.encryptor.conf.meta.MongoProfile
 import net.ins.encryptor.persistence.internals.mongo.EnvironmentEntity
 import net.ins.encryptor.persistence.internals.mongo.VariableEntity
+import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 
 @MongoProfile
+@Profile("!test")
 @ChangeLog
 @Component
 class MongoChangeLog {

@@ -1,7 +1,5 @@
-package net.ins.encryptor.extensions
+package net.ins.encryptor.persistence.internals.jpa
 
-import net.ins.encryptor.persistence.internals.jpa.EnvironmentEntity
-import net.ins.encryptor.persistence.internals.jpa.VariableEntity
 import net.ins.encryptor.domain.dto.Environment
 import net.ins.encryptor.domain.dto.Variable
 
@@ -17,4 +15,21 @@ fun VariableEntity.toDTO(): Variable = Variable(
     env = this@toDTO.id.env,
     value = this@toDTO.value,
     note = this@toDTO.note
+)
+
+fun Environment.toEntity(): EnvironmentEntity = EnvironmentEntity(
+    id = this@toEntity.id,
+    name = this@toEntity.name,
+    description = this@toEntity.description
+).apply {
+    variables = this@toEntity.variables.map { it.toEntity() }.toSet()
+}
+
+fun Variable.toEntity(): VariableEntity = VariableEntity(
+    id = VariableId(
+        key = this@toEntity.key,
+        env = this@toEntity.env
+    ),
+    value = this@toEntity.value,
+    note = this@toEntity.note
 )
