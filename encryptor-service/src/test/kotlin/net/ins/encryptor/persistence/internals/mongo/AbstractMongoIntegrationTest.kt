@@ -12,11 +12,9 @@ abstract class AbstractMongoIntegrationTest : AbstractEnvironmentStoreTest() {
 
     companion object {
 
-        const val MONGO_IMAGE: String = "mongo:4.4.12"
-
         @Container
         @JvmStatic
-        val mongoContainer = MongoDBContainer(MONGO_IMAGE)
+        val mongoContainer = MongoDBContainer("mongo:4.4.12")
 
         @DynamicPropertySource
         @JvmStatic
