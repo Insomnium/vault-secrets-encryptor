@@ -8,7 +8,6 @@ import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 
-@Testcontainers
 abstract class AbstractEnvironmentStoreTest {
 
     protected abstract val store: EnvironmentStore
